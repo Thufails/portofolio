@@ -2,6 +2,7 @@
 
 Selamat datang di repository portofolio saya!  
 Website ini menampilkan perjalanan saya dalam dunia **teknologi**, **pengembangan web**, serta berbagai **project yang pernah saya bangun**.
+link porto : https://thufails.github.io/portofolio/
 
 ---
 
