@@ -1023,6 +1023,9 @@ body.dark-mode {
 }
 
 .dark-mode .section-title,
+.dark-mode .about__info,
+.dark-mode .about__info p,
+.dark-mode .about__info span,
 .dark-mode h1,
 .dark-mode h2,
 .dark-mode p,
