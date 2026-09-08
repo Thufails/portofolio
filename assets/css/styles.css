@@ -1083,8 +1083,13 @@ body.dark-mode {
 }
 
 #visitor-counter {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 14px;
-    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#visitor-counter img {
+    height: 28px;
+    width: auto;
 }
