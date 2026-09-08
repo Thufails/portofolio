@@ -1081,3 +1081,10 @@ body.dark-mode {
     /* background: #333; */
     color: white;
 }
+
+#visitor-counter {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
