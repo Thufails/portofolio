@@ -11,6 +11,26 @@ const showMenu = (toggleId, navId) => {
     }
 }
 showMenu('nav-toggle', 'nav-menu')
+
+/*===== ROTATING HERO ROLE =====*/
+const homeRole = document.getElementById("home-role");
+const roleOptions = ["Web Developer", "IT Support"];
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (homeRole && !prefersReducedMotion.matches) {
+    let roleIndex = 0;
+
+    window.setInterval(() => {
+        homeRole.classList.add("is-changing");
+
+        window.setTimeout(() => {
+            roleIndex = (roleIndex + 1) % roleOptions.length;
+            homeRole.textContent = roleOptions[roleIndex];
+            homeRole.classList.remove("is-changing");
+        }, 250);
+    }, 3500);
+}
+
     /*========== DARK MODE ==========*/
 const darkToggle = document.getElementById("dark-toggle");
 
@@ -95,4 +115,4 @@ const sr = ScrollReveal({
 sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text', {});
 sr.reveal('.home__img, .about__subtitle, .about__text, .about__info, .skills__img', { delay: 400 });
 sr.reveal('.home__social-icon', { interval: 200 });
-sr.reveal('.skills__data, .work__img, .contact__input, .contact-section, .resume-container', { interval: 200 });
+sr.reveal('.skills__data, .work__img, .contact-cta__content, .footer__container, .resume-container', { interval: 200 });
