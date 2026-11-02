@@ -215,7 +215,7 @@ const sr = ScrollReveal({
 
 
 
-sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text', {});
+sr.reveal('.home__data, .about__img, .skills__intro', {});
 sr.reveal('.home__img, .about__subtitle, .about__text, .about__info, .skills__img', { delay: 400 });
 sr.reveal('.home__social-icon', { interval: 200 });
-sr.reveal('.skills__data, .work__img, .contact-cta__content, .footer__container, .resume-container', { interval: 200 });
+sr.reveal('.skill-tile, .work__img, .contact-cta__content, .footer__container, .resume-container', { interval: 80 });
