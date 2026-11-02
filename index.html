@@ -13,25 +13,6 @@
 
     <title>Portfolio Website</title>
 </head>
-<script>
-    const darkBtn = document.getElementById("darkBtn");
-
-    darkBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        // Simpan ke localStorage
-        if (document.body.classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
-        }
-    });
-
-    // Saat reload tetap sesuai pilihan user
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
-    }
-</script>
 
 <body>
     <!--===== HEADER =====-->
@@ -52,12 +33,12 @@
                     <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
                     <li class="nav__item"><a href="#contact-section" class="nav__link">Contact</a></li>
-                    <div class="dark-toggle" id="dark-toggle">
-                        <i class="fas fa-moon"></i>
-                    </div>
                 </ul>
 
             </div>
+            <button class="dark-toggle nav__theme-toggle" id="dark-toggle" type="button" aria-label="Tema perangkat. Klik untuk mengubah tema." aria-pressed="false">
+                <i class="fas fa-circle-half-stroke" aria-hidden="true"></i>
+            </button>
             <div class="nav__toggle" id="nav-toggle">
                 <i class='bx bx-menu'></i>
             </div>
@@ -74,9 +55,6 @@
 
                 <a href="#contact-section" class="button">Contact</a>
 
-                <!-- pindahkan social ke sini -->
-                <div class="home__social">
-                </div>
             </div>
 
             <!-- ini tetap di bawah -->
@@ -133,7 +111,7 @@
                             <h2 class="heading">Education</h2>
                             <div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-ideas"></span>
+                                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                                 </div>
                                 <div class="text pl-3">
                                     <span class="date">2021-2025</span>
@@ -143,7 +121,7 @@
                             </div>
                             <div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-ideas"></span>
+                                    <i class="fas fa-school" aria-hidden="true"></i>
                                 </div>
                                 <div class="text pl-3">
                                     <span class="date">2018-2021</span>
@@ -157,10 +135,22 @@
                             <h2 class="heading">Experience</h2>
                             <div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-ideas"></span>
+                                    <i class="fas fa-headset" aria-hidden="true"></i>
                                 </div>
                                 <div class="text pl-3">
-                                    <span class="date">2026</span>
+                                    <span class="date">October 2026 - Now</span>
+                                    <h2>IT Support - Web Developer</h2>
+                                    <span class="position">Yayasan Pondok Entrepreneur Usman Bin Affan</span>
+                                    <p>Responsible for maintaining and troubleshooting the organization's IT infrastructure, including hardware, software, and network systems. Developed and maintained the organization's website, ensuring optimal performance
+                                        and user experience. Collaborated with cross-functional teams to implement IT solutions that support organizational goals.</p>
+                                </div>
+                            </div>
+                            <div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-user-gear" aria-hidden="true"></i>
+                                </div>
+                                <div class="text pl-3">
+                                    <span class="date">January - May 2026</span>
                                     <h2>Information Systems Administrator</h2>
                                     <span class="position">Lembaga Kebijakan Pengadaan Barang & Jasa Pemerintahan</span>
                                     <p>Managed internal training systems, resolved user issues, coordinated technical troubleshooting, and provided LMS/PPSDM support through call center services.
@@ -169,7 +159,7 @@
                             </div>
                             <div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-ideas"></span>
+                                    <i class="fas fa-code" aria-hidden="true"></i>
                                 </div>
                                 <div class="text pl-3">
                                     <span class="date">2024</span>
@@ -181,7 +171,7 @@
                             </div>
                             <div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-ideas"></span>
+                                    <i class="fas fa-server" aria-hidden="true"></i>
                                 </div>
                                 <div class="text pl-3">
                                     <span class="date">2023</span>
@@ -194,7 +184,7 @@
                             <h2 class="heading">Organizational Experience</h2>
                             <div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-ideas"></span>
+                                    <i class="fas fa-people-group" aria-hidden="true"></i>
                                 </div>
                                 <div class="text pl-3">
                                     <span class="date">2022-2022</span>
@@ -276,6 +266,14 @@
             <h2 class="section-title">Projects</h2>
 
             <div class="work__container bd-grid">
+                <a href="https://emascorp.co.id" class="work__img" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi website EMAS CORP">
+                    <img src="assets/img/emascorp.png" alt="Tampilan halaman utama website EMAS CORP">
+                    <div class="work__info">
+                        <h3>EMAS CORP</h3>
+                        <p>Company Profile Website</p>
+                        <span class="work__visit">Kunjungi website <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                    </div>
+                </a>
                 <a href="#" class="work__img">
                     <img src="assets/img/work2.png" alt="">
                     <div class="work__info">

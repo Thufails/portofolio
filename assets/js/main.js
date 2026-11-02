@@ -5,7 +5,8 @@ const showMenu = (toggleId, navId) => {
 
     if (toggle && nav) {
         toggle.addEventListener('click', () => {
-            nav.classList.toggle('show')
+            const isOpen = nav.classList.toggle('show')
+            toggle.setAttribute('aria-expanded', String(isOpen))
         })
     }
 }
@@ -13,16 +14,41 @@ showMenu('nav-toggle', 'nav-menu')
     /*========== DARK MODE ==========*/
 const darkToggle = document.getElementById("dark-toggle");
 
-darkToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+const themeStorageKey = "theme-preference";
+let selectedTheme = localStorage.getItem(themeStorageKey) || "system";
 
-    // Ganti ikon
-    if (document.body.classList.contains("dark-mode")) {
-        darkToggle.innerHTML = `<i class="fas fa-sun"></i>`;
-    } else {
-        darkToggle.innerHTML = `<i class="fas fa-moon"></i>`;
-    }
+const setTheme = (mode) => {
+    const isDark = mode === "system" ? systemTheme.matches : mode === "dark";
+    document.body.classList.toggle("dark-mode", isDark);
+    if (!darkToggle) return;
+
+    const icon = mode === "system" ? "fa-circle-half-stroke" : isDark ? "fa-moon" : "fa-sun";
+    const label = mode === "system" ? "Tema perangkat" : isDark ? "Mode gelap" : "Mode terang";
+    darkToggle.innerHTML = `<i class="fas ${icon}" aria-hidden="true"></i>`;
+    darkToggle.setAttribute("aria-pressed", String(mode !== "system"));
+    darkToggle.setAttribute("aria-label", `${label}. Klik untuk mengganti tema.`);
+    darkToggle.title = `${label} · klik untuk mengganti`;
+};
+
+setTheme(selectedTheme);
+
+systemTheme.addEventListener("change", () => {
+    if (selectedTheme === "system") setTheme("system");
 });
+
+if (darkToggle) {
+    darkToggle.addEventListener("click", () => {
+        selectedTheme = selectedTheme === "system"
+            ? "light"
+            : selectedTheme === "light" ? "dark" : "system";
+
+        if (selectedTheme === "system") localStorage.removeItem(themeStorageKey);
+        else localStorage.setItem(themeStorageKey, selectedTheme);
+
+        setTheme(selectedTheme);
+    });
+}
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
