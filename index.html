@@ -301,50 +301,65 @@
                         <span class="work__visit">Kunjungi website <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
                     </div>
                 </a>
-                <a href="#" class="work__img">
-                    <img src="assets/img/work2.png" alt="">
+                <button type="button" class="work__img work__card" data-project="simarsip" aria-label="Lihat detail proyek SIMARSIP">
+                    <img src="assets/img/work2.png" alt="Tampilan dashboard SIMARSIP">
                     <div class="work__info">
                         <h3>SIMARSIP</h3>
                         <p>Backend Development</p>
                     </div>
-                </a>
-                <a href="#" class="work__img">
-                    <img src="assets/img/work1.png" alt="">
+                </button>
+                <button type="button" class="work__img work__card" data-project="ruang-edukasi" aria-label="Lihat detail proyek Ruang Edukasi">
+                    <img src="assets/img/work1.png" alt="Tampilan halaman Ruang Edukasi">
                     <div class="work__info">
                         <h3>Ruang Edukasi</h3>
                         <p>Backend Development</p>
                     </div>
-                </a>
-                <a href="#" class="work__img">
-                    <img src="assets/img/work3.png" alt="">
+                </button>
+                <button type="button" class="work__img work__card" data-project="sicafe" aria-label="Lihat detail proyek SiCafe">
+                    <img src="assets/img/work3.png" alt="Tampilan website SiCafe">
                     <div class="work__info">
                         <h3>SiCafe</h3>
                         <p>Fullstack Development</p>
                     </div>
-                </a>
-                <a href="#" class="work__img">
-                    <img src="assets/img/work4.png" alt="">
+                </button>
+                <button type="button" class="work__img work__card" data-project="weather-app" aria-label="Lihat detail proyek weatherApp">
+                    <img src="assets/img/work4.png" alt="Tampilan aplikasi cuaca">
                     <div class="work__info">
                         <h3>weatherApp</h3>
                         <p>Backend JavaScript</p>
                     </div>
-                </a>
-                <a href="#" class="work__img">
-                    <img src="assets/img/work5.png" alt="">
+                </button>
+                <button type="button" class="work__img work__card" data-project="money-management" aria-label="Lihat detail proyek Money Management Web">
+                    <img src="assets/img/work5.png" alt="Ilustrasi proyek Money Management Web">
                     <div class="work__info">
                         <h3>Money Management Web</h3>
                         <p>Laravel Project</p>
                     </div>
-                </a>
-                <a href="#" class="work__img">
-                    <img src="assets/img/work6.png" alt="">
+                </button>
+                <button type="button" class="work__img work__card" data-project="kebudayaan" aria-label="Lihat detail proyek Kebudayaan Web">
+                    <img src="assets/img/work6.png" alt="Tampilan website bertema kebudayaan Indonesia">
                     <div class="work__info">
                         <h3>Kebudayaan Web</h3>
                         <p>Frontend Project</p>
                     </div>
-                </a>
+                </button>
             </div>
         </section>
+
+        <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
+            <button class="project-dialog__close" type="button" aria-label="Tutup detail proyek"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+            <span class="project-dialog__role" id="project-dialog-role"></span>
+            <h2 id="project-dialog-title"></h2>
+            <p class="project-dialog__description" id="project-dialog-description"></p>
+            <div class="project-dialog__highlights">
+                <h3>What I worked on</h3>
+                <ul id="project-dialog-highlights"></ul>
+            </div>
+            <div class="project-dialog__stack-wrap">
+                <h3>Tools &amp; focus</h3>
+                <div class="project-dialog__stack" id="project-dialog-stack"></div>
+            </div>
+        </dialog>
 
     </main>
 

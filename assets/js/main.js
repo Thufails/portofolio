@@ -31,6 +31,109 @@ if (homeRole && !prefersReducedMotion.matches) {
     }, 3500);
 }
 
+/*===== PROJECT DETAILS =====*/
+const projectDialog = document.getElementById("project-dialog");
+const projectCatalog = {
+    simarsip: {
+        title: "SIMARSIP",
+        role: "Backend Development",
+        description: "A digital archive management system built for Malang City's Population and Civil Registration Service.",
+        highlights: [
+            "Developed backend and API functionality as part of a four-person team.",
+            "Used Laravel and JavaScript for API development, database management, and web security.",
+            "Contributed to more efficient archive management and on-time project delivery."
+        ],
+        stack: ["Laravel", "JavaScript", "API Development", "Database Management"]
+    },
+    "ruang-edukasi": {
+        title: "Ruang Edukasi",
+        role: "Backend Development",
+        description: "Backend work for a Massive Open Online Course (MOOC) learning platform.",
+        highlights: [
+            "Organized API development and managed data and server operations.",
+            "Collaborated with the Front-End Engineering team to create API endpoints for app features."
+        ],
+        stack: ["Backend", "API", "Data Integration", "Server Management"]
+    },
+    sicafe: {
+        title: "SiCafe",
+        role: "Full-stack Development",
+        description: "A café website developed across the frontend and backend.",
+        highlights: [
+            "Contributed to the frontend and backend implementation of the café website."
+        ],
+        stack: ["Full-stack", "Web Development"]
+    },
+    "weather-app": {
+        title: "weatherApp",
+        role: "Backend JavaScript",
+        description: "A weather application with JavaScript-based backend functionality.",
+        highlights: [
+            "Built JavaScript backend functionality for the weather application."
+        ],
+        stack: ["JavaScript", "Backend"]
+    },
+    "money-management": {
+        title: "Money Management Web",
+        role: "Laravel Project",
+        description: "A Laravel project focused on personal finance management.",
+        highlights: [
+            "Developed the project as a Laravel-based web application for managing personal finances."
+        ],
+        stack: ["Laravel", "Finance Web App"]
+    },
+    kebudayaan: {
+        title: "Kebudayaan Web",
+        role: "Frontend Project",
+        description: "A frontend website presenting Indonesian cultural content.",
+        highlights: [
+            "Built the website interface to showcase cultural content."
+        ],
+        stack: ["Frontend", "Cultural Content"]
+    }
+};
+
+if (projectDialog) {
+    const title = document.getElementById("project-dialog-title");
+    const role = document.getElementById("project-dialog-role");
+    const description = document.getElementById("project-dialog-description");
+    const highlights = document.getElementById("project-dialog-highlights");
+    const stack = document.getElementById("project-dialog-stack");
+    let projectScrollPosition = 0;
+
+    document.querySelectorAll(".work__card").forEach((card) => {
+        card.addEventListener("click", () => {
+            const project = projectCatalog[card.dataset.project];
+            if (!project) return;
+
+            projectScrollPosition = window.scrollY;
+            title.textContent = project.title;
+            role.textContent = project.role;
+            description.textContent = project.description;
+            highlights.replaceChildren(...project.highlights.map((item) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                return listItem;
+            }));
+            stack.replaceChildren(...project.stack.map((item) => {
+                const badge = document.createElement("span");
+                badge.textContent = item;
+                return badge;
+            }));
+            projectDialog.showModal();
+            window.requestAnimationFrame(() => window.scrollTo({ top: projectScrollPosition, left: 0, behavior: "auto" }));
+        });
+    });
+
+    projectDialog.addEventListener("close", () => {
+        window.scrollTo({ top: projectScrollPosition, left: 0, behavior: "auto" });
+    });
+    projectDialog.querySelector(".project-dialog__close").addEventListener("click", () => projectDialog.close());
+    projectDialog.addEventListener("click", (event) => {
+        if (event.target === projectDialog) projectDialog.close();
+    });
+}
+
     /*========== DARK MODE ==========*/
 const darkToggle = document.getElementById("dark-toggle");
 
